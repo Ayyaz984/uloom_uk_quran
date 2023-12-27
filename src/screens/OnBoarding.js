@@ -2,8 +2,12 @@ import {View, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import OnboardingSwiper from 'react-native-onboarding-swiper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {useDispatch} from 'react-redux';
+import {SetAppFirstLoad} from '../redux/features/AppLoadFirstSlice';
 
 const OnBoarding = () => {
+  const dispatch = useDispatch();
+
   const Done = ({...props}) => {
     return (
       <TouchableOpacity {...props}>
@@ -30,7 +34,7 @@ const OnBoarding = () => {
   return (
     <OnboardingSwiper
       DoneButtonComponent={Done}
-      onDone={() => console.log('done')}
+      onDone={() => dispatch(SetAppFirstLoad(false))}
       DotComponent={Dots}
       pages={[
         {
