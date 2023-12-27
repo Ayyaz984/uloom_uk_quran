@@ -9,10 +9,10 @@ const StackNavigation = () => {
 
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Main">
-        {props => <DrawerNavigation {...props} />}
-      </Stack.Screen>
       <Stack.Screen name="OnBoarding" component={OnBoarding} />
+      {/* <Stack.Screen name="Main">
+        {props => <DrawerNavigation {...props} />}
+      </Stack.Screen> */}
     </Stack.Navigator>
   );
 };
