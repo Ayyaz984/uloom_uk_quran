@@ -10,7 +10,6 @@ const AppLoadFirstSlice = createSlice({
   initialState: {AppLoadFirstTime: true},
   extraReducers: builder => {
     builder.addCase(SetAppFirstLoad.fulfilled, (state, action) => {
-      console.log('Extra reducer 13:', action.payload);
       state.AppLoadFirstTime = action.payload;
     });
   },

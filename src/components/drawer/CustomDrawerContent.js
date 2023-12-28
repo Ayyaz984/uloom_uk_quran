@@ -2,8 +2,13 @@ import {View, Text, Image, StyleSheet} from 'react-native';
 import React from 'react';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {useDispatch} from 'react-redux';
+import {showBookmarkModal} from '../../redux/features/BookmarkSlice';
+import {showFavoriteModal} from '../../redux/features/FavoritesSlice';
 
 const CustomDrawerContent = props => {
+  const dispatch = useDispatch();
+
   return (
     <View style={{flex: 1}}>
       <DrawerContentScrollView {...props}>
@@ -34,6 +39,7 @@ const CustomDrawerContent = props => {
           icon={({focused, size, color}) => (
             <Ionicons name="bookmark" size={25} color="#000000" />
           )}
+          onPress={() => dispatch(showBookmarkModal())}
         />
         <DrawerItem
           label="Favorites"
@@ -41,6 +47,7 @@ const CustomDrawerContent = props => {
           icon={({focused, size, color}) => (
             <Ionicons name="star" size={25} color="#000000" />
           )}
+          onPress={() => dispatch(showFavoriteModal())}
         />
         <DrawerItem
           label="Tajweed Rules"
